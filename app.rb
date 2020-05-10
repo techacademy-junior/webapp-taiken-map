@@ -13,12 +13,7 @@ get '/' do
 end
 
 post '/' do
-  @title = params[:title]
-  @latitude = params[:latitude]
-  @longitude = params[:longitude]
-  @memo = params[:memo]
-  @places = place_data << { title: @title, latitude: @latitude , longitude: @longitude, memo: @memo }
-  erb :index
+  #ここに投稿するコードを書きます。
 end
 
 post '/delete' do

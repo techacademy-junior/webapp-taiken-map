@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>地図を表示しよう</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+  <title>地図を表示しよう</title>
 </head>
-<body>
-<%= @latitude %>,<%= @longitude %>
+<body class="container">
+  <div class="mb-4">
+    緯度:<%= @latitude %>, 経度：<%= @longitude %>
+  </div>
 
 <form action="/" method="post">
-  <p>場所の追加</p>
-  <label>場所<input type="text" name="title"></label>
-  <label>緯度<input type="text" name="latitude"></label>
-  <label>経度<input type="text" name="longitude"></label>
-  <label>メモ<input type="text" name="memo"></label>
-  <input type="submit" value="データー追加">
+  <h3>場所の追加</h3>
+  <div class="form-group">
+    <label>場所<input type="text" name="title" class="form-control"></label>
+  </div>
+  <div class="form-group">
+    <label>緯度<input type="text" name="latitude" class="form-control"></label>
+    <label>経度<input type="text" name="longitude" class="form-control"></label>
+  </div>
+  <div class="form-group">
+    <label>メモ<input type="text" name="memo" class="form-control"></label>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="データー追加" class="btn btn-success">
+  </div>
 </form>
 <form action="/delete" method="post">
-  <input type="submit" value="データークリア">
+  <div class="form-group">
+    <input type="submit" value="データークリア" class="btn btn-danger">
+  </div>
 </form>
 
 <% if @places.any? %>
@@ -77,6 +89,10 @@
     targetForm.submit();
   });
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
 </body>
 </html>
 <% params = {} %>
